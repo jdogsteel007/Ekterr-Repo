@@ -15,7 +15,8 @@ public class cubController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        transform.position = Vector3.Lerp(transform.position, player.transform.position - buffer, .04f);
+
+        transform.position = Vector3.Lerp(transform.position, player.transform.position - buffer, .03f);
 
     }
 }
