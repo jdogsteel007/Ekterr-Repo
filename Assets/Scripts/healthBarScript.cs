@@ -8,6 +8,8 @@ public class healthBarScript : MonoBehaviour {
     Image healthBar;
     float maxHealth = 100f;
     public static float health;
+
+    public GameObject player;
     
 
 	// Use this for initialization
@@ -22,6 +24,8 @@ public class healthBarScript : MonoBehaviour {
 	void Update () {
         healthBar.fillAmount = health / maxHealth;
 
-        
+        if (health == 0) {
+            Destroy(player);
+        }
 	}
 }

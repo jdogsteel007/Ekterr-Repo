@@ -23,7 +23,6 @@ public class npcDialogue : MonoBehaviour {
         {
 
             if (Input.GetKeyDown(KeyCode.E)) {
-
                 dialogueTrigger triggerDialouge = GetComponent<dialogueTrigger>();
                 triggerDialouge.TriggerDialogue();
 

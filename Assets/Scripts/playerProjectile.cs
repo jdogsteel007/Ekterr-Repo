@@ -19,7 +19,9 @@ public class playerProjectile : MonoBehaviour {
 
         if (Input.GetMouseButtonDown(0))
         {
+            
             var go = Instantiate(playerProj, transform.position, Quaternion.identity) as GameObject;
+            Physics2D.IgnoreCollision(go.GetComponent<BoxCollider2D>(), GetComponent<BoxCollider2D>());
             myRigid =  go.GetComponent<Rigidbody2D>();
 
             Vector3 sp = Camera.main.WorldToScreenPoint(transform.position);

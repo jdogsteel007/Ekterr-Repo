@@ -160,6 +160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe2e1350371fe6847babf017422f50a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 2041633908}
 --- !u!114 &100060642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4685,6 +4686,11 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 2041633908}
+    - target: {fileID: 50947245691791772, guid: 7e842c213c3f17c45895f09812c276ee,
+        type: 2}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7e842c213c3f17c45895f09812c276ee, type: 2}
   m_IsPrefabParent: 0

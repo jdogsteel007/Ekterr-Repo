@@ -29,6 +29,8 @@ public class dialogueManager : MonoBehaviour {
 
         playerRigid.constraints = RigidbodyConstraints2D.FreezeAll;
 
+        player.GetComponent<playerProjectile>().enabled = false;
+
         animator.SetBool("isOpen", true);
 
         nameText.text = dialogue.name;
@@ -66,6 +68,9 @@ public class dialogueManager : MonoBehaviour {
         Debug.Log("End of convo");
         animator.SetBool("isOpen", false);
         playerRigid.constraints = RigidbodyConstraints2D.None;
+        playerRigid.constraints = RigidbodyConstraints2D.FreezeRotation;
+
+        player.GetComponent<playerProjectile>().enabled = true;
     }
 	
 

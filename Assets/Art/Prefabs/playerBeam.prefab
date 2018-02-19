@@ -21,9 +21,11 @@ GameObject:
   - component: {fileID: 4713386271775480}
   - component: {fileID: 212772951481112882}
   - component: {fileID: 50080807397559902}
+  - component: {fileID: 61342274646462360}
+  - component: {fileID: 114804088873700328}
   m_Layer: 0
   m_Name: playerBeam
-  m_TagString: Untagged
+  m_TagString: firstprojectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61,6 +63,42 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!61 &61342274646462360
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1753496609439002}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.71, y: 1.2}
+    newSize: {x: 0.71, y: 1.2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.71, y: 1.2}
+  m_EdgeRadius: 0
+--- !u!114 &114804088873700328
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1753496609439002}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cfd3e85519fc3a43863d43cb4333886, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212772951481112882
 SpriteRenderer:
   m_ObjectHideFlags: 1
