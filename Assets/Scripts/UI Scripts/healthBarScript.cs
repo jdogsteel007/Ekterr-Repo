@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class healthBarScript : MonoBehaviour {
 
@@ -26,6 +27,7 @@ public class healthBarScript : MonoBehaviour {
 
         if (health == 0) {
             Destroy(player);
+            SceneManager.LoadScene(1);
         }
 	}
 }
