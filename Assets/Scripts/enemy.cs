@@ -9,13 +9,23 @@ public class enemy : MonoBehaviour {
 
     public int health = 100;
 
-	// Use this for initialization
-	void Start () {
+
+    // Use this for initialization
+    void Start () {
 		
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+    IEnumerator detractHealth()
+    {
+        for (float f = 50f; f >= 0; f -= 1f)
+        {
+            healthBarScript.health -= 10;
+            yield return new WaitForSeconds(1);
+        }
+    }
+
+    // Update is called once per frame
+    void Update () {
         if(isChasing == true)
         {
             transform.position = Vector3.Lerp(transform.position, player.transform.position, .045f);
@@ -31,8 +41,9 @@ public class enemy : MonoBehaviour {
     {
 
         if (collision.gameObject.tag == "player"){
-            healthBarScript.health -= 10f;
-            Debug.Log("hit");
+
+            StartCoroutine("detractHealth");
+
         }
 
         if (collision.gameObject.tag == "firstprojectile") {
