@@ -6,6 +6,7 @@ public class enemy : MonoBehaviour {
 
     public GameObject player;
     public bool isChasing = false;
+    private bool isColliding = false;
 
     public int health = 100;
 
@@ -35,16 +36,26 @@ public class enemy : MonoBehaviour {
             Destroy(gameObject);
         }
 
+        if (isColliding == false)
+        {
+
+            StopCoroutine("detractHealth");
+
+        }
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        isColliding = true;
 
-        if (collision.gameObject.tag == "player"){
+        if (isColliding == true && collision.gameObject.tag == "player")
+        {
 
             StartCoroutine("detractHealth");
 
         }
+
 
         if (collision.gameObject.tag == "firstprojectile") {
             health -= 20;
@@ -52,6 +63,11 @@ public class enemy : MonoBehaviour {
         
 
         
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        isColliding = false;
     }
 
 }

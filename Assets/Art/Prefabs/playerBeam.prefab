@@ -22,9 +22,10 @@ GameObject:
   - component: {fileID: 212772951481112882}
   - component: {fileID: 50080807397559902}
   - component: {fileID: 61342274646462360}
+  - component: {fileID: 114932577758192640}
   m_Layer: 0
   m_Name: playerBeam
-  m_TagString: Untagged
+  m_TagString: firstprojectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -87,6 +88,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.71, y: 1.2}
   m_EdgeRadius: 0
+--- !u!114 &114932577758192640
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1753496609439002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cfd3e85519fc3a43863d43cb4333886, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212772951481112882
 SpriteRenderer:
   m_ObjectHideFlags: 1
