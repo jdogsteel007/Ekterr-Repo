@@ -4712,6 +4712,10 @@ Prefab:
       propertyPath: isChasing
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1595604241840362, guid: 0e30caf921037104ca0e1ab36d793f86, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0e30caf921037104ca0e1ab36d793f86, type: 2}
   m_IsPrefabParent: 0
