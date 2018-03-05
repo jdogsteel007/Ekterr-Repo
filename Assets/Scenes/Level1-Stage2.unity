@@ -7100,11 +7100,15 @@ Prefab:
         type: 2}
       propertyPath: player
       value: 
-      objectReference: {fileID: 1402714956143684, guid: 6075468da66c87745822657a728c833e,
-        type: 2}
+      objectReference: {fileID: 1307927942}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 46de3cf5854929a40aada4b37c83ec4c, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1307927942 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1402714956143684, guid: 6075468da66c87745822657a728c833e,
+    type: 2}
+  m_PrefabInternal: {fileID: 1861505777}
 --- !u!1 &1353507544
 GameObject:
   m_ObjectHideFlags: 0
@@ -7198,8 +7202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42a96545b02248e42972233e5db1967b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followTarget: {fileID: 1402714956143684, guid: 6075468da66c87745822657a728c833e,
-    type: 2}
+  followTarget: {fileID: 1307927942}
   cameramoveSpeed: 10
 --- !u!1001 &1861505777
 Prefab:
