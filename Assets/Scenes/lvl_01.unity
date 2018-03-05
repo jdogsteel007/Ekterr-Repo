@@ -4768,6 +4768,11 @@ Prefab:
       propertyPath: isChasing
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 50232956092810316, guid: 5ca81e366acae7e4b92a0eea529b3fbe,
+        type: 2}
+      propertyPath: m_Constraints
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5ca81e366acae7e4b92a0eea529b3fbe, type: 2}
   m_IsPrefabParent: 0

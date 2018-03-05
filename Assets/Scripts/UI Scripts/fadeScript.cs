@@ -10,8 +10,8 @@ public class fadeScript : MonoBehaviour {
 
     IEnumerator DoFade() {
         CanvasGroup canvasGroup = GetComponent<CanvasGroup>();
-        while (canvasGroup.alpha > 0) {
-            canvasGroup.alpha -= Time.deltaTime / 2;
+        while (canvasGroup.alpha <= 1) {
+            canvasGroup.alpha += Time.deltaTime * .35f;
             yield return null;
         }
         canvasGroup.interactable = false;
