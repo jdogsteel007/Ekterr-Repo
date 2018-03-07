@@ -16,6 +16,10 @@ public class PlayerController : MonoBehaviour {
 
     private Rigidbody2D myRigidbody;
 
+    public float recharge;
+    private float timer;
+    public float sprintTime;
+
 	// Use this for initialization
 	void Start () {
 
@@ -30,14 +34,25 @@ public class PlayerController : MonoBehaviour {
 
         playerMoving = false;
 
-		if (Input.GetKeyDown(KeyCode.LeftShift)) {
+        if (Input.GetKey(KeyCode.LeftShift) && timer <= sprintTime)
+        {
+            timer += Time.deltaTime;
+            Debug.Log("sprinting " + timer);
+            sprintMult = 1f + moveSpeed * .25f;
 
-			sprintMult = 1f + moveSpeed * 0.25f;
+        }
+        else if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
 
-		} else {
-			
-			sprintMult = 1f;
-		}
+            timer = 0;
+
+            Debug.Log("not sprinting " + timer);
+            sprintMult = 1f;
+        }
+        else {
+            Debug.Log("not sprinting outside loop " + timer);
+            sprintMult = 1f;
+        }
 
         if (Input.GetAxisRaw("Horizontal") > 0.5)
         {
