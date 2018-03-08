@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour {
         {
             timer += Time.deltaTime;
             Debug.Log("sprinting " + timer);
-            sprintMult = 1f + moveSpeed * .25f;
+            sprintMult = 1f + moveSpeed * .12f;
 
         }
         else if (Input.GetKeyUp(KeyCode.LeftShift))

@@ -12134,7 +12134,7 @@ Prefab:
     - target: {fileID: 114942559630494072, guid: 6075468da66c87745822657a728c833e,
         type: 2}
       propertyPath: sprintTime
-      value: 1
+      value: 2.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6075468da66c87745822657a728c833e, type: 2}
