@@ -2,25 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class enemy : MonoBehaviour {
+public class enemy : CombatEntity {
 
-    public GameObject player;
+    //public GameObject player; //Get this from Globals.Inst now
     public bool isChasing = false;
     private bool isColliding = false;
 
-    public int health = 100;
+    //public int health = 100;
 
 
     // Use this for initialization
     void Start () {
-		
+        IsFriendly = false;
+        Health = MaxHealth;
 	}
 
     IEnumerator detractHealth()
     {
         for (float f = 50f; f >= 0; f -= 1f)
         {
-            healthBarScript.health -= 10;
+            //healthBarScript.health -= 10;
+            Globals.Inst.Player.Health -= 2;
             yield return new WaitForSeconds(1);
         }
     }
@@ -29,14 +31,14 @@ public class enemy : MonoBehaviour {
     void Update () {
         if(isChasing == true)
         {
-            transform.position = Vector3.Lerp(transform.position, player.transform.position, .045f);
+            transform.position = Vector3.Lerp(transform.position, Globals.Inst.Player.transform.position, .045f);
         }
 
-        if (health == 0) {
+        if (Health == 0) {
             Destroy(gameObject);
         }
 
-        if (isColliding == false)
+        if (!isColliding)
         {
 
             StopCoroutine("detractHealth");
@@ -49,7 +51,7 @@ public class enemy : MonoBehaviour {
     {
         isColliding = true;
 
-        if (isColliding == true && collision.gameObject.tag == "player")
+        if (isColliding && collision.gameObject.tag == "player")
         {
 
             StartCoroutine("detractHealth");
@@ -58,7 +60,7 @@ public class enemy : MonoBehaviour {
 
 
         if (collision.gameObject.tag == "firstprojectile") {
-            health -= 20;
+            Health -= 20;
         }
         
 
