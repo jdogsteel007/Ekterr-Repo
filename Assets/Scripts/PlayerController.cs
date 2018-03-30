@@ -8,22 +8,17 @@ public class PlayerController : CombatEntity {  //Inherets from CombatEntity so 
 
     private Animator anim;
 
-	private float sprintMult;//used to multiply speed when sprinting
-
     private bool playerMoving;
     //basically two different variables: lastMoveX and lastMoveY vv
     public Vector2 LastMove;
 
     private Rigidbody2D myRigidbody;
 
-    public float recharge;
-    private float timer;
-    public float sprintTime;
-
 	// Use this for initialization
 	void Start () {
         anim = GetComponent<Animator>();
         myRigidbody = GetComponent<Rigidbody2D>();
+        Health = MaxHealth;
 	}
 	
 	// Update is called once per frame
@@ -31,10 +26,21 @@ public class PlayerController : CombatEntity {  //Inherets from CombatEntity so 
 
         playerMoving = false;
 
+        Vector2 movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));   //(Devin) here is a cleaner way of doing player movement, I hope you don't mind...
+        if (movement.magnitude > 0.5)
+        {
+            playerMoving = true;
+            myRigidbody.velocity = movement.normalized * moveSpeed;
+            LastMove = movement.normalized;
+        }
+        else myRigidbody.velocity = Vector2.zero;
+
+        /*
+
         if (Input.GetAxisRaw("Horizontal") > 0.5)
         {
             //transform.Translate(new Vector3(Input.GetAxisRaw("Horizontal") * moveSpeed * Time.deltaTime, 0f, 0f));
-			myRigidbody.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * moveSpeed * sprintMult, myRigidbody.velocity.y);
+            myRigidbody.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * moveSpeed, myRigidbody.velocity.y);
             playerMoving = true;
             //lastMove gets the value of the horizontal axis and keeps it instead of it returning to zero
             lastMove = new Vector2(Input.GetAxisRaw("Horizontal"), 0f);
@@ -42,7 +48,7 @@ public class PlayerController : CombatEntity {  //Inherets from CombatEntity so 
         else if (Input.GetAxisRaw("Horizontal") < -0.5)
         {
             //transform.Translate(new Vector3(Input.GetAxisRaw("Horizontal") * moveSpeed * Time.deltaTime, 0f, 0f));
-			myRigidbody.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * moveSpeed * sprintMult, myRigidbody.velocity.y);
+            myRigidbody.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * moveSpeed, myRigidbody.velocity.y);
             playerMoving = true;
             lastMove = new Vector2(Input.GetAxisRaw("Horizontal"), 0f);
         }
@@ -50,14 +56,14 @@ public class PlayerController : CombatEntity {  //Inherets from CombatEntity so 
         if (Input.GetAxisRaw("Vertical") > 0.5)
         {
             //transform.Translate(new Vector3(0f, Input.GetAxisRaw("Vertical") * moveSpeed * Time.deltaTime, 0f));
-			myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, Input.GetAxisRaw("Vertical") * moveSpeed * sprintMult);
+            myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, Input.GetAxisRaw("Vertical") * moveSpeed);
             playerMoving = true;
             lastMove = new Vector2(0f, Input.GetAxisRaw("Vertical"));
         }
         else if (Input.GetAxisRaw("Vertical") < -0.5)
         {
             //transform.Translate(new Vector3(0f, Input.GetAxisRaw("Vertical") * moveSpeed * Time.deltaTime, 0f));
-			myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, Input.GetAxisRaw("Vertical") * moveSpeed * sprintMult);
+            myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, Input.GetAxisRaw("Vertical") * moveSpeed);
             playerMoving = true;
             lastMove = new Vector2(0f, Input.GetAxisRaw("Vertical"));
         }
