@@ -160,7 +160,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe2e1350371fe6847babf017422f50a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 2041633908}
 --- !u!114 &100060642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9743,8 +9742,9 @@ GameObject:
   m_Component:
   - component: {fileID: 336719705}
   - component: {fileID: 336719704}
+  - component: {fileID: 336719706}
   m_Layer: 0
-  m_Name: DialogueManager
+  m_Name: GlobalScripts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11777,6 +11777,7 @@ GameObject:
   - component: {fileID: 1257174129}
   - component: {fileID: 1257174128}
   - component: {fileID: 1257174130}
+  - component: {fileID: 1257174131}
   m_Layer: 0
   m_Name: cub
   m_TagString: Untagged
@@ -11853,6 +11854,67 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 2041633908}
+--- !u!114 &1257174131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1257174127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41173c9c4ab439347a0859365a069a87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ReopenWindow: 0
+  IsPaused: 0
+  PlayOnStart: 1
+  Events:
+  - _position: 0.13870968
+    _length: 4.94
+    _track: 3
+    Name: New Event
+    BackgroundColor: {r: 0, g: 0, b: 1, a: 1}
+    OnEnter:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    OnExit:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - _position: 5.6948366
+    _length: 1
+    _track: 5
+    Name: New Event
+    BackgroundColor: {r: 0, g: 0, b: 1, a: 1}
+    OnEnter:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    OnExit:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  LastClickedEvent:
+    _position: 0.13870968
+    _length: 4.94
+    _track: 3
+    Name: New Event
+    BackgroundColor: {r: 0, g: 0, b: 1, a: 1}
+    OnEnter:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    OnExit:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
 --- !u!1 &1385129218
 GameObject:
   m_ObjectHideFlags: 0
@@ -12017,13 +12079,18 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114942559630494072, guid: 6075468da66c87745822657a728c833e,
+        type: 2}
+      propertyPath: OnKill.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4977881817404766, guid: 6075468da66c87745822657a728c833e, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 4.9
+      value: 4.87
       objectReference: {fileID: 0}
     - target: {fileID: 4977881817404766, guid: 6075468da66c87745822657a728c833e, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -4.2
+      value: -4.34
       objectReference: {fileID: 0}
     - target: {fileID: 4977881817404766, guid: 6075468da66c87745822657a728c833e, type: 2}
       propertyPath: m_LocalPosition.z
@@ -12058,6 +12125,21 @@ Prefab:
         type: 2}
       propertyPath: sprintTime
       value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114088024840646352, guid: 6075468da66c87745822657a728c833e,
+        type: 2}
+      propertyPath: BulletSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114942559630494072, guid: 6075468da66c87745822657a728c833e,
+        type: 2}
+      propertyPath: OnKill.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114942559630494072, guid: 6075468da66c87745822657a728c833e,
+        type: 2}
+      propertyPath: OnKill.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6075468da66c87745822657a728c833e, type: 2}
@@ -12136,6 +12218,12 @@ GameObject:
   m_PrefabParentObject: {fileID: 1402714956143684, guid: 6075468da66c87745822657a728c833e,
     type: 2}
   m_PrefabInternal: {fileID: 1901918448}
+--- !u!114 &2041633910 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114942559630494072, guid: 6075468da66c87745822657a728c833e,
+    type: 2}
+  m_PrefabInternal: {fileID: 1901918448}
+  m_Script: {fileID: 11500000, guid: 0bfd4a5e4048ff44d907665b5bb85cb0, type: 3}
 --- !u!1 &2063126020
 GameObject:
   m_ObjectHideFlags: 0

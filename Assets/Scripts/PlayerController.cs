@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour {
+public class PlayerController : CombatEntity {  //Inherets from CombatEntity so we have health and bullet handling
 
     public float moveSpeed;
 
@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour {
 
     private bool playerMoving;
     //basically two different variables: lastMoveX and lastMoveY vv
-    private Vector2 lastMove;
+    public Vector2 LastMove;
 
     private Rigidbody2D myRigidbody;
 
@@ -22,37 +22,14 @@ public class PlayerController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
         anim = GetComponent<Animator>();
         myRigidbody = GetComponent<Rigidbody2D>();
-
-
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
         playerMoving = false;
-
-        if (Input.GetKey(KeyCode.LeftShift) && timer <= sprintTime)
-        {
-            timer += Time.deltaTime;
-            Debug.Log("sprinting " + timer);
-            sprintMult = 1f + moveSpeed * .12f;
-
-        }
-        else if (Input.GetKeyUp(KeyCode.LeftShift))
-        {
-
-            timer = 0;
-
-            Debug.Log("not sprinting " + timer);
-            sprintMult = 1f;
-        }
-        else {
-            Debug.Log("not sprinting outside loop " + timer);
-            sprintMult = 1f;
-        }
 
         if (Input.GetAxisRaw("Horizontal") > 0.5)
         {
@@ -94,13 +71,31 @@ public class PlayerController : MonoBehaviour {
             myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, 0f);
         }
 
+        */
+
         anim.SetFloat("MoveX", Input.GetAxisRaw("Horizontal"));
         anim.SetFloat("MoveY", Input.GetAxisRaw("Vertical"));
         anim.SetBool("PlayerMoving", playerMoving);
-        anim.SetFloat("LastMoveX", lastMove.x);
-        anim.SetFloat("LastMoveY", lastMove.y);
+        anim.SetFloat("LastMoveX", LastMove.x);
+        anim.SetFloat("LastMoveY", LastMove.y);
 
     }
 
+    public override void HandleBullet(Bullet bullet)
+    {
+        if (bullet.FriendlyBullet != IsFriendly)
+            Health -= bullet.Damage;
+        if (Health == 0)
+        {
+            OnKill.Invoke();
+            Kill();
+        }
+    }
+
+    public void Kill()
+    {
+        Destroy(gameObject); //RIP!
+        UnityEngine.SceneManagement.SceneManager.LoadScene(1);
+    }
 
 }
