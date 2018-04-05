@@ -4728,7 +4728,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1595604241840362, guid: 0e30caf921037104ca0e1ab36d793f86, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 50148644892703618, guid: 0e30caf921037104ca0e1ab36d793f86,
         type: 2}
@@ -4814,7 +4814,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1762044315647674, guid: 5ca81e366acae7e4b92a0eea529b3fbe, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114612336423712174, guid: 5ca81e366acae7e4b92a0eea529b3fbe,
         type: 2}
@@ -7120,6 +7120,16 @@ Prefab:
         type: 2}
       propertyPath: OnKill.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114942559630494072, guid: 6075468da66c87745822657a728c833e,
+        type: 2}
+      propertyPath: sprintTime
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114942559630494072, guid: 6075468da66c87745822657a728c833e,
+        type: 2}
+      propertyPath: sprintMult
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6075468da66c87745822657a728c833e, type: 2}

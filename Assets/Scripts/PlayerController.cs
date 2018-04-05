@@ -6,6 +6,10 @@ public class PlayerController : CombatEntity {  //Inherets from CombatEntity so 
 
     public float moveSpeed;
 
+    private float sprintMult;
+    private float timer;
+    public float sprintTime;
+
     private Animator anim;
 
     private bool playerMoving;
@@ -26,11 +30,32 @@ public class PlayerController : CombatEntity {  //Inherets from CombatEntity so 
 
         playerMoving = false;
 
+        if (Input.GetKey(KeyCode.LeftShift) && timer <= sprintTime)
+        {
+            timer += Time.deltaTime;
+            Debug.Log("sprinting " + timer);
+            sprintMult = 1f + moveSpeed * .12f;
+
+        }
+        else if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+
+            timer = 0;
+
+            Debug.Log("not sprinting " + timer);
+            sprintMult = 1f;
+        }
+        else
+        {
+            Debug.Log("not sprinting outside loop " + timer);
+            sprintMult = 1f;
+        }
+
         Vector2 movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));   //(Devin) here is a cleaner way of doing player movement, I hope you don't mind...
         if (movement.magnitude > 0.5)
         {
             playerMoving = true;
-            myRigidbody.velocity = movement.normalized * moveSpeed;
+            myRigidbody.velocity = movement.normalized * moveSpeed *sprintMult;
             LastMove = movement.normalized;
         }
         else myRigidbody.velocity = Vector2.zero;
