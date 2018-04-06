@@ -4804,8 +4804,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 2041633909}
+  Cub: {fileID: 1257174130}
   DefaultBulletPrefab: {fileID: 1993068235790294, guid: fe29561627969a14d98a315b6ab76ebf,
     type: 2}
+  InputFocus: {fileID: 2041633908}
 --- !u!1 &385547887 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1595604241840362, guid: 0e30caf921037104ca0e1ab36d793f86,
@@ -6940,6 +6942,7 @@ GameObject:
   - component: {fileID: 1257174128}
   - component: {fileID: 1257174130}
   - component: {fileID: 1257174131}
+  - component: {fileID: 1257174132}
   m_Layer: 0
   m_Name: cub
   m_TagString: Untagged
@@ -7016,6 +7019,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 2041633908}
+  moveSpeed: 0
 --- !u!114 &1257174131
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7077,6 +7081,26 @@ MonoBehaviour:
         m_Calls: []
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
+--- !u!50 &1257174132
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1257174127}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 1
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &1385129218
 GameObject:
   m_ObjectHideFlags: 0

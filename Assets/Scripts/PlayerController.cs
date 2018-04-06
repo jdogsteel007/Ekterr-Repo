@@ -27,45 +27,55 @@ public class PlayerController : CombatEntity {  //Inherets from CombatEntity so 
 	
 	// Update is called once per frame
 	void Update () {
-
-        playerMoving = false;
-
-        if (Input.GetKey(KeyCode.LeftShift) && timer <= sprintTime)
+        if (Globals.Inst.InputFocus == gameObject)
         {
-            timer += Time.deltaTime;
-            Debug.Log("sprinting " + timer);
-            sprintMult = 1f + moveSpeed * .12f;
+            playerMoving = false;
 
-        }
-        else if (Input.GetKeyUp(KeyCode.LeftShift))
-        {
+            if (Globals.DidPlayerSwitchThisFrame)
+                Globals.DidPlayerSwitchThisFrame = false;
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                Globals.DidPlayerSwitchThisFrame = true;
+                Globals.Inst.InputFocus = Globals.Inst.Cub.gameObject;
+                return;
+            }
+            if (Input.GetKey(KeyCode.LeftShift) && timer <= sprintTime)
+            {
+                timer += Time.deltaTime;
+                Debug.Log("sprinting " + timer);
+                sprintMult = 1f + moveSpeed * .12f;
 
-            timer = 0;
+            }
+            else if (Input.GetKeyUp(KeyCode.LeftShift))
+            {
 
-            Debug.Log("not sprinting " + timer);
-            sprintMult = 1f;
-        }
-        else
-        {
-            Debug.Log("not sprinting outside loop " + timer);
-            sprintMult = 1f;
-        }
+                timer = 0;
 
-        Vector2 movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));   //(Devin) here is a cleaner way of doing player movement, I hope you don't mind...
-        if (movement.magnitude > 0.5)
-        {
-            playerMoving = true;
-            myRigidbody.velocity = movement.normalized * moveSpeed *sprintMult;
-            LastMove = movement.normalized;
+                Debug.Log("not sprinting " + timer);
+                sprintMult = 1f;
+            }
+            else
+            {
+                Debug.Log("not sprinting outside loop " + timer);
+                sprintMult = 1f;
+            }
+
+            Vector2 movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));   //(Devin) here is a cleaner way of doing player movement, I hope you don't mind...
+            if (movement.magnitude > 0.5)
+            {
+                playerMoving = true;
+                myRigidbody.velocity = movement.normalized * moveSpeed * sprintMult;
+                LastMove = movement.normalized;
+            }
+            else myRigidbody.velocity = Vector2.zero;
+
+            anim.SetFloat("MoveX", movement.x);
+            anim.SetFloat("MoveY", movement.y);
+            anim.SetBool("PlayerMoving", playerMoving);
+            anim.SetFloat("LastMoveX", LastMove.x);
+            anim.SetFloat("LastMoveY", LastMove.y);
         }
         else myRigidbody.velocity = Vector2.zero;
-
-        anim.SetFloat("MoveX", movement.x);
-        anim.SetFloat("MoveY", movement.y);
-        anim.SetBool("PlayerMoving", playerMoving);
-        anim.SetFloat("LastMoveX", LastMove.x);
-        anim.SetFloat("LastMoveY", LastMove.y);
-
     }
 
     public override void HandleBullet(Bullet bullet)
