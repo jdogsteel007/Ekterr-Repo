@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class spriteFade : MonoBehaviour {
 
-    public float fadeTime = 1f;
+    public float fadeTime = 0.1f;
 
 	// Use this for initialization
 	void Start () {
@@ -20,7 +20,8 @@ public class spriteFade : MonoBehaviour {
         Color tmpColor = sprite.color;
 
         while (tmpColor.a > 0) {
-            tmpColor.a = Time.deltaTime / fadeTime;
+            //tmpColor.a = Time.deltaTime / fadeTime;
+            tmpColor.a -= fadeTime;
             sprite.color = tmpColor;
             if (tmpColor.a <= 0)
                 {

@@ -17,20 +17,11 @@ public class playerProjectile : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-
-
+        /*
+        
         if (Input.GetMouseButton(0) && timeSinceLastFire > FireRate)    //Made it so you can hold down the mouse button for constant fire, just change it back if you didn't want that
         {
             timeSinceLastFire = 0;
-            /*
-            var go = Instantiate(playerProj, transform.position, Quaternion.identity) as GameObject;
-            Physics2D.IgnoreCollision(go.GetComponent<BoxCollider2D>(), GetComponent<BoxCollider2D>());
-            myRigid =  go.GetComponent<Rigidbody2D>();
-
-            Vector3 sp = Camera.main.WorldToScreenPoint(transform.position);
-            Vector3 dir = (Input.mousePosition - sp).normalized;
-            myRigid.AddForce(dir * strength);
-            */
 
             Vector3 sp = Camera.main.WorldToScreenPoint(transform.position);
 
@@ -40,6 +31,11 @@ public class playerProjectile : MonoBehaviour {
         }
 
         timeSinceLastFire += Time.deltaTime;
+        */
+        if (Input.GetMouseButton(0) && GetComponent<BaseWeapon>())
+        {
+            GetComponent<BaseWeapon>().TryToFire();
+        }
 
     }
 }

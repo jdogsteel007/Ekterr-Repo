@@ -41,6 +41,7 @@ public class rangedEnemy : CombatEntity {
             //Vector3 dir = player.transform.position;
             //myRigid.AddForce(dir * Strength);
 
+            /*
             if (_timeSinceLastFire > FireRate)
             {
                 //fire bullet and reset time counter
@@ -53,6 +54,11 @@ public class rangedEnemy : CombatEntity {
             }
             else
                 _timeSinceLastFire += Time.deltaTime;
+                */
+            if (GetComponent<BaseWeapon>())
+            {
+                GetComponent<BaseWeapon>().TryToFire();
+            }
 
         }
         else
