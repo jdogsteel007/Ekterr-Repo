@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class timedTransition : MonoBehaviour {
 
+    public int secondsToWait;
+    public string sceneToGoTo;
+
 	// Use this for initialization
 	void Start () {
 
@@ -21,9 +24,9 @@ public class timedTransition : MonoBehaviour {
 
     IEnumerator delayedStart() {
 
-        yield return new WaitForSeconds(23);
+        yield return new WaitForSeconds(secondsToWait);
 
-        SceneManager.LoadScene("lvl_01");
+        SceneManager.LoadScene(sceneToGoTo);
 
 
     }

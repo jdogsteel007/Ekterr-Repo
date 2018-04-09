@@ -20,3 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/lvl_02.unity
     guid: cf3599fb298c6254699887e94a5bd07b
+  - enabled: 1
+    path: Assets/Scenes/cutscene_01.unity
+    guid: c085cde1b7eed874ca87f8950a5a566e
+  - enabled: 1
+    path: Assets/Scenes/inside_House.unity
+    guid: 307e84881b4939445946c766584252ff

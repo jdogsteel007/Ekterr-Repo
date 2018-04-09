@@ -183,6 +183,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26ef63076a8635a43a6e5db900c4a776, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  secondsToWait: 23
+  sceneToGoTo: cutscene_01
 --- !u!4 &326143022
 Transform:
   m_ObjectHideFlags: 0
