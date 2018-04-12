@@ -26,3 +26,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/inside_House.unity
     guid: 307e84881b4939445946c766584252ff
+  - enabled: 1
+    path: Assets/Scenes/cub_hiding.unity
+    guid: 2b5a36c51099170408ad7eea589fbfaf
+  - enabled: 1
+    path: Assets/Scenes/intro.unity
+    guid: 113d52a83afb66c45b873bf653678fe5
