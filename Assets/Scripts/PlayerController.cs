@@ -54,6 +54,10 @@ public class PlayerController : CombatEntity {  //Inherets from CombatEntity so 
                 Debug.Log("not sprinting " + timer);
                 sprintMult = 1f;
             }
+            else if (Input.GetMouseButton(0) && GetComponent<BaseWeapon>())
+            {
+                GetComponent<BaseWeapon>().TryToFire();
+            }
             else
             {
                 Debug.Log("not sprinting outside loop " + timer);

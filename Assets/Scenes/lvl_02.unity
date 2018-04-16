@@ -336,8 +336,8 @@ Tilemap:
       m_ColliderType: 1
   - first: {x: -1, y: -11, z: 0}
     second:
-      m_TileIndex: 3
-      m_TileSpriteIndex: 3
+      m_TileIndex: 5
+      m_TileSpriteIndex: 5
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_ObjectToInstantiate: {fileID: 0}
@@ -345,8 +345,8 @@ Tilemap:
       m_ColliderType: 1
   - first: {x: 0, y: -11, z: 0}
     second:
-      m_TileIndex: 3
-      m_TileSpriteIndex: 3
+      m_TileIndex: 5
+      m_TileSpriteIndex: 5
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_ObjectToInstantiate: {fileID: 0}
@@ -642,8 +642,8 @@ Tilemap:
       m_ColliderType: 1
   - first: {x: -1, y: -10, z: 0}
     second:
-      m_TileIndex: 3
-      m_TileSpriteIndex: 3
+      m_TileIndex: 5
+      m_TileSpriteIndex: 5
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_ObjectToInstantiate: {fileID: 0}
@@ -651,8 +651,8 @@ Tilemap:
       m_ColliderType: 1
   - first: {x: 0, y: -10, z: 0}
     second:
-      m_TileIndex: 3
-      m_TileSpriteIndex: 3
+      m_TileIndex: 5
+      m_TileSpriteIndex: 5
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_ObjectToInstantiate: {fileID: 0}
@@ -6930,12 +6930,12 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 534491809d48ebe43b29e46a1712971c, type: 2}
   - m_RefCount: 7
     m_Data: {fileID: 11400000, guid: 95769db98c7642c49bd3f2fc58953194, type: 2}
-  - m_RefCount: 213
+  - m_RefCount: 209
     m_Data: {fileID: 11400000, guid: 46b218617c48af84c9db5dc7ead1b6fc, type: 2}
   - m_RefCount: 192
     m_Data: {fileID: 11400000, guid: ea6802c1840fc414bafe920364559f49, type: 2}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 4
+    m_Data: {fileID: 11400000, guid: 87b7d42e3268438499ae488a8a6b1a2e, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 313
     m_Data: {fileID: 21300076, guid: 4059aa153dac4ce49abd447d9c5754f3, type: 3}
@@ -6943,12 +6943,12 @@ Tilemap:
     m_Data: {fileID: 21300132, guid: 4059aa153dac4ce49abd447d9c5754f3, type: 3}
   - m_RefCount: 7
     m_Data: {fileID: 21300030, guid: 4059aa153dac4ce49abd447d9c5754f3, type: 3}
-  - m_RefCount: 213
+  - m_RefCount: 209
     m_Data: {fileID: 21300026, guid: 4059aa153dac4ce49abd447d9c5754f3, type: 3}
   - m_RefCount: 192
     m_Data: {fileID: 21300012, guid: 4059aa153dac4ce49abd447d9c5754f3, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 4
+    m_Data: {fileID: 21300032, guid: 4059aa153dac4ce49abd447d9c5754f3, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 748
     m_Data:
