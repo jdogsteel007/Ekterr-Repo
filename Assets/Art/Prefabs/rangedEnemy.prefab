@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 61018400593416368}
   - component: {fileID: 50148644892703618}
   - component: {fileID: 114936555710592262}
+  - component: {fileID: 114677130164532708}
   m_Layer: 0
   m_Name: rangedEnemy
   m_TagString: Untagged
@@ -36,8 +37,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1595604241840362}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2, y: 9.35, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -9.870541, y: 8.962574, z: 0.00390625}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -62,7 +63,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 3
+  m_Constraints: 0
 --- !u!61 &61018400593416368
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -88,6 +89,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &114677130164532708
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1595604241840362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 403a041ed09de504ab463cf0e8b6df7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FireRate: 0.5
+  BulletSpeed: 5
+  BulletDamage: 1
+  BulletTint: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &114936555710592262
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -99,13 +115,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62aa15c633bb031498c2ea808eb446c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  OnKill:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  MaxHealth: 20
+  IsFriendly: 1
   isChasing: 1
-  health: 100
-  maxRange: 3
+  maxRange: 5
   minRange: 0
   enemyProj: {fileID: 1753496609439002, guid: 71fea3e655464b942ad706791f0766b9, type: 2}
-  strength: 0.1
+  Strength: 1
+  ChaseSpeed: 5
+  FireRate: 1
+  BulletSpeed: 10
 --- !u!212 &212930648896153008
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -139,7 +163,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300028, guid: 4059aa153dac4ce49abd447d9c5754f3, type: 3}
   m_Color: {r: 0, g: 0.21379304, b: 1, a: 1}
   m_FlipX: 0

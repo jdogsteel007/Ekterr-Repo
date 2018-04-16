@@ -60,7 +60,7 @@ public class PlayerController : CombatEntity {  //Inherets from CombatEntity so 
             }
             else
             {
-                Debug.Log("not sprinting outside loop " + timer);
+                //Debug.Log("not sprinting outside loop " + timer);
                 sprintMult = 1f;
             }
 
