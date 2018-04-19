@@ -25,6 +25,7 @@ public class rangedEnemy : CombatEntity {
 	
 	// Update is called once per frame
 	void Update () {
+        
 
         transform.rotation = StaticHelper.LookAt2D(transform.position, Globals.Inst.Player.transform.position);
 
@@ -75,4 +76,5 @@ public class rangedEnemy : CombatEntity {
         */
 
     }
+
 }

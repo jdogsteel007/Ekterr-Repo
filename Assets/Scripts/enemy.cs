@@ -7,6 +7,7 @@ public class enemy : CombatEntity {
     //public GameObject player; //Get this from Globals.Inst now
     public bool isChasing = false;
     private bool isColliding = false;
+    public float ChaseSpeed = 5;
 
     //public int health = 100;
 
@@ -29,9 +30,11 @@ public class enemy : CombatEntity {
 
     // Update is called once per frame
     void Update () {
-        if(isChasing == true)
+
+        if (isChasing == true)
         {
-            transform.position = Vector3.Lerp(transform.position, Globals.Inst.Player.transform.position, .045f);
+            transform.rotation = StaticHelper.LookAt2D(transform.position, Globals.Inst.Player.transform.position);
+            GetComponent<Rigidbody2D>().velocity = transform.up.normalized * ChaseSpeed;
         }
 
         if (Health == 0) {
