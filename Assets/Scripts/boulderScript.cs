@@ -5,10 +5,11 @@ using UnityEngine;
 public class boulderScript : MonoBehaviour {
 
     public GameObject player;
+    public GameObject truck;
 
 	// Use this for initialization
 	void Start () {
-		
+
 	}
 	
 	// Update is called once per frame

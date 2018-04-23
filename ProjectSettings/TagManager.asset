@@ -7,6 +7,7 @@ TagManager:
   - player
   - firstprojectile
   - secondText
+  - truck
   layers:
   - Default
   - TransparentFX

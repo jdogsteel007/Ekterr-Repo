@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class timedTransition : MonoBehaviour {
 
-    public int secondsToWait;
+    public float secondsToWait;
     public string sceneToGoTo;
 
 	// Use this for initialization
