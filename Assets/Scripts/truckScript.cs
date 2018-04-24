@@ -9,10 +9,14 @@ public class truckScript : MonoBehaviour {
     public float speed = 0;
     public float secondsToWait = 3;
     public Canvas runCanvas;
+    public GameObject player;
+    private Rigidbody2D playerRigid;
 
 	// Use this for initialization
 	void Start () {
         StartCoroutine(levelPause());
+        playerRigid = player.GetComponent<Rigidbody2D>();
+        playerRigid.constraints = RigidbodyConstraints2D.FreezeAll;
 	}
 	
 	// Update is called once per frame
@@ -38,8 +42,10 @@ public class truckScript : MonoBehaviour {
         //truck pauses at beginning so words can be read about running away
 
         yield return new WaitForSeconds(secondsToWait);
-        speed = .11f;
+        speed = .114f;
         runCanvas.enabled = false;
+        playerRigid.constraints = RigidbodyConstraints2D.None;
+        playerRigid.constraints = RigidbodyConstraints2D.FreezeRotation;
 
     }
 
