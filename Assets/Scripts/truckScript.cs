@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class truckScript : MonoBehaviour {
 
     public float speed = 0;
-    private float secondsToWait = 3;
+    public float secondsToWait = 3;
+    public Canvas runCanvas;
 
 	// Use this for initialization
 	void Start () {
@@ -24,6 +27,11 @@ public class truckScript : MonoBehaviour {
         if (collision.gameObject.tag == "truck") {
             speed = 0;
         }
+
+        if (collision.gameObject.tag == "player") {
+            Destroy(collision.gameObject);
+            SceneManager.LoadScene("gameover");
+        }
     }
 
     IEnumerator levelPause() {
@@ -31,6 +39,7 @@ public class truckScript : MonoBehaviour {
 
         yield return new WaitForSeconds(secondsToWait);
         speed = .11f;
+        runCanvas.enabled = false;
 
     }
 

@@ -982,7 +982,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   secondsToWait: 7
-  sceneToGoTo: lvl_01
+  sceneToGoTo: outside_house
 --- !u!4 &1910665530
 Transform:
   m_ObjectHideFlags: 0
