@@ -41,3 +41,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level 1 Clearing after chase.unity
     guid: d3f9f7a439f3da74b862549d48a37a9a
+  - enabled: 1
+    path: Assets/Scenes/Level1-Stage2.unity
+    guid: 0ed727e56c03a1b43baba08e2764d1ed

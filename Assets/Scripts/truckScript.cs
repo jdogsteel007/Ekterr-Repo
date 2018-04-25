@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class truckScript : MonoBehaviour {
 
-    public float speed = 0;
+    private float speed = 0;
     public float secondsToWait = 3;
     public Canvas runCanvas;
     public GameObject player;
@@ -36,13 +36,20 @@ public class truckScript : MonoBehaviour {
             Destroy(collision.gameObject);
             SceneManager.LoadScene("gameover");
         }
+
+        if (collision.gameObject.tag == "rocks")
+        {
+            Physics2D.IgnoreCollision(collision.collider, this.GetComponent<Collider2D>());
+        }
+
+
     }
 
     IEnumerator levelPause() {
         //truck pauses at beginning so words can be read about running away
 
         yield return new WaitForSeconds(secondsToWait);
-        speed = .114f;
+        speed = .111f;
         runCanvas.enabled = false;
         playerRigid.constraints = RigidbodyConstraints2D.None;
         playerRigid.constraints = RigidbodyConstraints2D.FreezeRotation;
