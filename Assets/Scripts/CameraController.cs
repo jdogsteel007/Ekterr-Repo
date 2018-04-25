@@ -11,7 +11,7 @@ public class CameraController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+        Globals.Inst.MainCamera = gameObject;
 	}
 	
 	// Update is called once per frame
@@ -21,6 +21,6 @@ public class CameraController : MonoBehaviour {
         //first parameter is where we are, second is where we want to go, third is the speed at which we want to traverse multiplied by time.deltatime to make movement independent of framerate
         transform.position = Vector3.Lerp(transform.position, targetPosition, cameramoveSpeed * Time.deltaTime);
 
-	}
+    }
 
 }

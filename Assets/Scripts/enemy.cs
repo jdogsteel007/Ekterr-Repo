@@ -7,13 +7,14 @@ public class enemy : CombatEntity {
     //public GameObject player; //Get this from Globals.Inst now
     public bool isChasing = false;
     private bool isColliding = false;
-    public float ChaseSpeed = 5;
+    public float ChaseSpeed = 5, MaxRange = 20;
 
     //public int health = 100;
 
 
     // Use this for initialization
     void Start () {
+        StartCoroutine(StartWaitDelayCoroutine());
         IsFriendly = false;
         Health = MaxHealth;
 	}
@@ -31,7 +32,7 @@ public class enemy : CombatEntity {
     // Update is called once per frame
     void Update () {
 
-        if (isChasing == true)
+        if (isChasing == true && IsActiveInGame && Vector3.Distance(transform.position, Globals.Inst.transform.position) < MaxRange)
         {
             transform.rotation = StaticHelper.LookAt2D(transform.position, Globals.Inst.Player.transform.position);
             GetComponent<Rigidbody2D>().velocity = transform.up.normalized * ChaseSpeed;

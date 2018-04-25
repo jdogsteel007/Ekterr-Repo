@@ -4675,6 +4675,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53d33c1faa609ac46a8709b3132baf90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  StartWaitSeconds: 1
+  IsActiveInGame: 0
   OnKill:
     m_PersistentCalls:
       m_Calls: []
@@ -4745,7 +4747,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &336719703
 GameObject:
@@ -4808,135 +4810,7 @@ MonoBehaviour:
   DefaultBulletPrefab: {fileID: 1993068235790294, guid: fe29561627969a14d98a315b6ab76ebf,
     type: 2}
   InputFocus: {fileID: 2041633908}
---- !u!1 &385547887 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1595604241840362, guid: 0e30caf921037104ca0e1ab36d793f86,
-    type: 2}
-  m_PrefabInternal: {fileID: 401846492}
---- !u!114 &385547888
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 385547887}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62aa15c633bb031498c2ea808eb446c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnKill:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  MaxHealth: 20
-  IsFriendly: 0
-  isChasing: 1
-  maxRange: 50
-  minRange: 5
-  enemyProj: {fileID: 1144766128385868, guid: 4cfaf49e06865bc42b85914518e971ed, type: 2}
-  Strength: 2
-  ChaseSpeed: 0.45
-  FireRate: 1
-  BulletSpeed: 10
---- !u!1001 &401846492
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4795766459275474, guid: 0e30caf921037104ca0e1ab36d793f86, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0.74
-      objectReference: {fileID: 0}
-    - target: {fileID: 4795766459275474, guid: 0e30caf921037104ca0e1ab36d793f86, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 3.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4795766459275474, guid: 0e30caf921037104ca0e1ab36d793f86, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4795766459275474, guid: 0e30caf921037104ca0e1ab36d793f86, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4795766459275474, guid: 0e30caf921037104ca0e1ab36d793f86, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4795766459275474, guid: 0e30caf921037104ca0e1ab36d793f86, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4795766459275474, guid: 0e30caf921037104ca0e1ab36d793f86, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4795766459275474, guid: 0e30caf921037104ca0e1ab36d793f86, type: 2}
-      propertyPath: m_RootOrder
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 114936555710592262, guid: 0e30caf921037104ca0e1ab36d793f86,
-        type: 2}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 2041633908}
-    - target: {fileID: 114936555710592262, guid: 0e30caf921037104ca0e1ab36d793f86,
-        type: 2}
-      propertyPath: strength
-      value: 0.001
-      objectReference: {fileID: 0}
-    - target: {fileID: 114936555710592262, guid: 0e30caf921037104ca0e1ab36d793f86,
-        type: 2}
-      propertyPath: enemyProj
-      value: 
-      objectReference: {fileID: 1144766128385868, guid: 4cfaf49e06865bc42b85914518e971ed,
-        type: 2}
-    - target: {fileID: 114936555710592262, guid: 0e30caf921037104ca0e1ab36d793f86,
-        type: 2}
-      propertyPath: rangeEnemy
-      value: 
-      objectReference: {fileID: 385547887}
-    - target: {fileID: 114936555710592262, guid: 0e30caf921037104ca0e1ab36d793f86,
-        type: 2}
-      propertyPath: isChasing
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1595604241840362, guid: 0e30caf921037104ca0e1ab36d793f86, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 50148644892703618, guid: 0e30caf921037104ca0e1ab36d793f86,
-        type: 2}
-      propertyPath: m_Constraints
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 114936555710592262, guid: 0e30caf921037104ca0e1ab36d793f86,
-        type: 2}
-      propertyPath: ChaseSpeed
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114936555710592262, guid: 0e30caf921037104ca0e1ab36d793f86,
-        type: 2}
-      propertyPath: maxRange
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114936555710592262, guid: 0e30caf921037104ca0e1ab36d793f86,
-        type: 2}
-      propertyPath: MaxHealth
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114936555710592262, guid: 0e30caf921037104ca0e1ab36d793f86,
-        type: 2}
-      propertyPath: IsFriendly
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114936555710592262, guid: 0e30caf921037104ca0e1ab36d793f86, type: 2}
-  m_ParentPrefab: {fileID: 100100000, guid: 0e30caf921037104ca0e1ab36d793f86, type: 2}
-  m_IsPrefabParent: 0
+  MainCamera: {fileID: 0}
 --- !u!1001 &824251287
 Prefab:
   m_ObjectHideFlags: 0
@@ -7422,6 +7296,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bfd4a5e4048ff44d907665b5bb85cb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  StartWaitSeconds: 1
+  IsActiveInGame: 0
   OnKill:
     m_PersistentCalls:
       m_Calls: []

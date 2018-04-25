@@ -20,14 +20,15 @@ public class cubController : MonoBehaviour {
         {
             if (Globals.DidPlayerSwitchThisFrame)
                 Globals.DidPlayerSwitchThisFrame = false;
-            if (Input.GetKeyDown(KeyCode.Q))
+            else if (Input.GetKeyDown(KeyCode.Q))
             {
                 Globals.DidPlayerSwitchThisFrame = true;
                 Globals.Inst.InputFocus = Globals.Inst.Player.gameObject;
+                Globals.Inst.MainCamera.GetComponent<CameraController>().followTarget = Globals.Inst.Player.gameObject;
                 return;
             }
             Vector2 movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));   //(Devin) here is a cleaner way of doing player movement, I hope you don't mind...
-            if (movement.magnitude > 0.5)
+            if (movement.magnitude > 0.1)
             {
                 GetComponent<Rigidbody2D>().velocity = movement.normalized * moveSpeed;
             }

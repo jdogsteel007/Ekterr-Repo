@@ -8,6 +8,9 @@ using UnityEngine.Events;
 /// </summary>
 public class CombatEntity : MonoBehaviour
 {
+    public float StartWaitSeconds = 1;
+    public bool IsActiveInGame = false;
+
     public UnityEvent OnKill = new UnityEvent();
 
     private int _health = 0;
@@ -23,6 +26,8 @@ public class CombatEntity : MonoBehaviour
             else _health = value;
             }
     }
+
+    public IEnumerator StartWaitDelayCoroutine() { yield return new WaitForSeconds(StartWaitSeconds); IsActiveInGame = true; }
 
     private void Start()
     {

@@ -12,7 +12,7 @@ public class Globals : MonoBehaviour {
     //Any global variables that we might want to access from anywhere can be put in here
     public PlayerController Player;
     public cubController Cub;
-    public GameObject DefaultBulletPrefab, InputFocus;
+    public GameObject DefaultBulletPrefab, InputFocus, MainCamera;
     public static bool DidPlayerSwitchThisFrame = false;
 
 	// Use this for initialization

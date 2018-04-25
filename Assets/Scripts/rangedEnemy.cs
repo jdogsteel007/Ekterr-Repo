@@ -8,7 +8,7 @@ public class rangedEnemy : CombatEntity {
     //public GameObject rangeEnemy; //(Devin) Don't actually need this, because you can get the attached gameobject from the property inhereted from MonoBehaviour
     public bool isChasing = false;
 
-    public int maxRange = 50, minRange = 5; //Health is now in CombatEntity
+    public int maxShootRange = 50, MaxViewRange = 75, minRange = 5; //Health is now in CombatEntity
 
     public GameObject enemyProj;
     Rigidbody2D myRigid;
@@ -19,62 +19,64 @@ public class rangedEnemy : CombatEntity {
 
     // Use this for initialization
     void Start () {
+        StartCoroutine(StartWaitDelayCoroutine());
         Health = MaxHealth;
         IsFriendly = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        
-
-        transform.rotation = StaticHelper.LookAt2D(transform.position, Globals.Inst.Player.transform.position);
-
-        if (Vector3.Distance(transform.position, Globals.Inst.Player.transform.position) < maxRange && Vector3.Distance(transform.position, Globals.Inst.Player.transform.position) > minRange)
+        if (IsActiveInGame && Vector3.Distance(transform.position, Globals.Inst.Player.transform.position) < MaxViewRange)
         {
-            if (GetComponent<Rigidbody2D>().velocity.magnitude > 0) GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-            isChasing = false;
 
-            /*
-            var go = Instantiate(enemyProj, transform.position, Quaternion.identity) as GameObject;
-            Physics2D.IgnoreCollision(go.GetComponent<BoxCollider2D>(), GetComponent<BoxCollider2D>());
-            myRigid = go.GetComponent<Rigidbody2D>();
-            */
-            //Vector3 dir = player.transform.position;
-            //myRigid.AddForce(dir * Strength);
+            transform.rotation = StaticHelper.LookAt2D(transform.position, Globals.Inst.Player.transform.position);
 
-            /*
-            if (_timeSinceLastFire > FireRate)
+            if (Vector3.Distance(transform.position, Globals.Inst.Player.transform.position) < maxShootRange && Vector3.Distance(transform.position, Globals.Inst.Player.transform.position) > minRange)
             {
-                //fire bullet and reset time counter
-                GameObject bullet = Instantiate(Globals.Inst.DefaultBulletPrefab, transform.position + transform.up, transform.rotation);
-                bullet.GetComponent<Bullet>().MovementSpeed = BulletSpeed;
-                bullet.GetComponent<Bullet>().Creator = gameObject;
-                bullet.GetComponent<Bullet>().FriendlyBullet = IsFriendly;
-                bullet.GetComponent<SpriteRenderer>().color = Color.red;
-                _timeSinceLastFire = 0;
+                if (GetComponent<Rigidbody2D>().velocity.magnitude > 0) GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                isChasing = false;
+
+                /*
+                var go = Instantiate(enemyProj, transform.position, Quaternion.identity) as GameObject;
+                Physics2D.IgnoreCollision(go.GetComponent<BoxCollider2D>(), GetComponent<BoxCollider2D>());
+                myRigid = go.GetComponent<Rigidbody2D>();
+                */
+                //Vector3 dir = player.transform.position;
+                //myRigid.AddForce(dir * Strength);
+
+                /*
+                if (_timeSinceLastFire > FireRate)
+                {
+                    //fire bullet and reset time counter
+                    GameObject bullet = Instantiate(Globals.Inst.DefaultBulletPrefab, transform.position + transform.up, transform.rotation);
+                    bullet.GetComponent<Bullet>().MovementSpeed = BulletSpeed;
+                    bullet.GetComponent<Bullet>().Creator = gameObject;
+                    bullet.GetComponent<Bullet>().FriendlyBullet = IsFriendly;
+                    bullet.GetComponent<SpriteRenderer>().color = Color.red;
+                    _timeSinceLastFire = 0;
+                }
+                else
+                    _timeSinceLastFire += Time.deltaTime;
+                    */
+                if (GetComponent<BaseWeapon>())
+                {
+                    GetComponent<BaseWeapon>().TryToFire();
+                }
+
             }
             else
-                _timeSinceLastFire += Time.deltaTime;
-                */
-            if (GetComponent<BaseWeapon>())
             {
-                GetComponent<BaseWeapon>().TryToFire();
+                isChasing = true;
+                GetComponent<Rigidbody2D>().velocity = transform.up.normalized * ChaseSpeed;
             }
 
+            /*
+            if (Health == 0)
+            {
+                Destroy(gameObject);
+            }
+            */
         }
-        else
-        {
-            isChasing = true;
-            GetComponent<Rigidbody2D>().velocity = transform.up.normalized * ChaseSpeed;
-        }
-
-        /*
-        if (Health == 0)
-        {
-            Destroy(gameObject);
-        }
-        */
-
     }
 
 }

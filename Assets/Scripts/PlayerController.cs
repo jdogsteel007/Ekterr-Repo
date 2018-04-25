@@ -33,10 +33,11 @@ public class PlayerController : CombatEntity {  //Inherets from CombatEntity so 
 
             if (Globals.DidPlayerSwitchThisFrame)
                 Globals.DidPlayerSwitchThisFrame = false;
-            if (Input.GetKeyDown(KeyCode.Q))
+            else if (Input.GetKeyDown(KeyCode.Q))
             {
                 Globals.DidPlayerSwitchThisFrame = true;
                 Globals.Inst.InputFocus = Globals.Inst.Cub.gameObject;
+                Globals.Inst.MainCamera.GetComponent<CameraController>().followTarget = Globals.Inst.Cub.gameObject;
                 return;
             }
             if (Input.GetKey(KeyCode.LeftShift) && timer <= sprintTime)

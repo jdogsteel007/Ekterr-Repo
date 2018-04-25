@@ -53,18 +53,19 @@ public class Boar : CombatEntity
         target.z = 0;
         float timeSinceBeginDash = 0;
         timeSinceBeginDash += Time.deltaTime;
-        while (transform.position != target)
+        while ((transform.position - target).magnitude > 0.01)
         {
-            Vector3 newPos = Vector3.Lerp(transform.position, target, 1);
-            RaycastHit2D rhh = Physics2D.Raycast(transform.position, transform.forward, DashUnits);
-            if (rhh == null)
+            Vector3 newPos = Vector3.Lerp(transform.position, target, 0.5f);
+            RaycastHit2D rhh = Physics2D.Raycast(transform.position + transform.up, transform.forward, DashUnits); //will break if boar is scaled, for now
+            if (!rhh)
             {
                 transform.position = newPos;
             }
             else
             {
-                transform.position = new Vector3(rhh.point.x, rhh.point.y, 0);// - transform.up * 0.5f;
+                transform.position = new Vector3(rhh.point.x, rhh.point.y, 0) - transform.up;
                 Debug.Log("Boar Hit: ");
+                break;
             }
             yield return null;
         }
