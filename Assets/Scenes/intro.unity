@@ -867,7 +867,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1364634700}
   - component: {fileID: 1364634699}
-  - component: {fileID: 1364634698}
   m_Layer: 0
   m_Name: audio
   m_TagString: Untagged
@@ -875,17 +874,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1364634698
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1364634697}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ccabca7afcf85544a02cc6457bdef74, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!82 &1364634699
 AudioSource:
   m_ObjectHideFlags: 0
@@ -897,7 +885,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a4f113fa3f5c3324286297df8e910186, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.324
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0

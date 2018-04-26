@@ -489,11 +489,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4795766459275474, guid: 0e30caf921037104ca0e1ab36d793f86, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 9.52
+      value: 7.68
       objectReference: {fileID: 0}
     - target: {fileID: 4795766459275474, guid: 0e30caf921037104ca0e1ab36d793f86, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.49
+      value: 4.75
       objectReference: {fileID: 0}
     - target: {fileID: 4795766459275474, guid: 0e30caf921037104ca0e1ab36d793f86, type: 2}
       propertyPath: m_LocalPosition.z
@@ -548,9 +548,32 @@ Prefab:
       propertyPath: maxShootRange
       value: 6
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114677130164532708, guid: 0e30caf921037104ca0e1ab36d793f86, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 0e30caf921037104ca0e1ab36d793f86, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1020840608 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1595604241840362, guid: 0e30caf921037104ca0e1ab36d793f86,
+    type: 2}
+  m_PrefabInternal: {fileID: 1020840607}
+--- !u!114 &1020840609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1020840608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 904def66d12edec47931322e3b3676b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FireRate: 0.8
+  BulletSpeed: 3
+  BulletDamage: 1
+  BulletTint: {r: 1, g: 1, b: 1, a: 1}
+  BulletSpread: 58
+  NumberOfBullets: 7
 --- !u!1001 &1365566465
 Prefab:
   m_ObjectHideFlags: 0
