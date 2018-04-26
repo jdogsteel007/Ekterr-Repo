@@ -258,6 +258,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bfd4a5e4048ff44d907665b5bb85cb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  StartWaitSeconds: 1
+  IsActiveInGame: 0
   OnKill:
     m_PersistentCalls:
       m_Calls: []
@@ -306,7 +308,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.9375, y: 1.625}
+    oldSize: {x: 0.8125, y: 1.5625}
     newSize: {x: 0.90625, y: 1.53125}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -368,7 +370,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300014, guid: dd34b9bb9400009428442f82b8a21767, type: 3}
+  m_Sprite: {fileID: 21300006, guid: dd34b9bb9400009428442f82b8a21767, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -19299,6 +19301,12 @@ Prefab:
       propertyPath: moveSpeed
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 212995506090857338, guid: 46de3cf5854929a40aada4b37c83ec4c,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300052, guid: aaff2c4d59f1b3443ae5e55929011189,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 46de3cf5854929a40aada4b37c83ec4c, type: 2}
   m_IsPrefabParent: 0
@@ -20260,6 +20268,7 @@ MonoBehaviour:
   DefaultBulletPrefab: {fileID: 1993068235790294, guid: fe29561627969a14d98a315b6ab76ebf,
     type: 2}
   InputFocus: {fileID: 481621860}
+  MainCamera: {fileID: 0}
 --- !u!1001 &1837697032
 Prefab:
   m_ObjectHideFlags: 0
