@@ -9,8 +9,6 @@ public class enemy : CombatEntity {
     private bool isColliding = false;
     public float ChaseSpeed = 5, MaxRange = 20;
 
-    //public int health = 100;
-
 
     // Use this for initialization
     void Start () {
@@ -34,8 +32,12 @@ public class enemy : CombatEntity {
 
         if (isChasing == true && IsActiveInGame && Vector3.Distance(transform.position, Globals.Inst.transform.position) < MaxRange)
         {
-            transform.rotation = StaticHelper.LookAt2D(transform.position, Globals.Inst.Player.transform.position);
-            GetComponent<Rigidbody2D>().velocity = transform.up.normalized * ChaseSpeed;
+            if (!UseRaycastVision || (UseRaycastVision && RaycastPlayer()))
+            {
+                transform.rotation = StaticHelper.LookAt2D(transform.position, Globals.Inst.Player.transform.position);
+                GetComponent<Rigidbody2D>().velocity = transform.up.normalized * ChaseSpeed;
+            } //else the enemy doesn't see the player
+            else GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         }
 
         if (Health == 0) {
@@ -50,6 +52,7 @@ public class enemy : CombatEntity {
         }
 
     }
+
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

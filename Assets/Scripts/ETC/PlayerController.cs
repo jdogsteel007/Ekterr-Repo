@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class PlayerController : CombatEntity {  //Inherets from CombatEntity so we have health and bullet handling
 
-    public float moveSpeed;
+    public GameObject PlayerShield;
+
+    public float moveSpeed, sprintTime;
 
     private float sprintMult;
     private float timer;
-    public float sprintTime;
 
     private Animator anim;
 
@@ -40,29 +41,50 @@ public class PlayerController : CombatEntity {  //Inherets from CombatEntity so 
                 Globals.Inst.MainCamera.GetComponent<CameraController>().followTarget = Globals.Inst.Cub.gameObject;
                 return;
             }
-            if (Input.GetKey(KeyCode.LeftShift) && timer <= sprintTime)
-            {
-                timer += Time.deltaTime;
-                Debug.Log("sprinting " + timer);
-                sprintMult = 1f + moveSpeed * .12f;
 
-            }
-            else if (Input.GetKeyUp(KeyCode.LeftShift))
+            if (Input.GetMouseButton(1)) //shield
             {
-
-                timer = 0;
-
-                Debug.Log("not sprinting " + timer);
-                sprintMult = 1f;
-            }
-            else if (Input.GetMouseButton(0) && GetComponent<BaseWeapon>())
-            {
-                GetComponent<BaseWeapon>().TryToFire();
+                if (!PlayerShield.activeInHierarchy)
+                {
+                    PlayerShield.SetActive(true);
+                    PlayerShield.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
+                }
+                PlayerShield.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f + Mathf.Sin(Time.fixedTime * 10) * 0.25f);
+                sprintMult = 0.5f;
             }
             else
             {
-                //Debug.Log("not sprinting outside loop " + timer);
                 sprintMult = 1f;
+                if (PlayerShield.activeInHierarchy)
+                {
+                    PlayerShield.SetActive(false);
+                }
+
+                if (Input.GetKey(KeyCode.LeftShift) && timer <= sprintTime)
+                {
+                    timer += Time.deltaTime;
+                    Debug.Log("sprinting " + timer);
+                    sprintMult = 1f + moveSpeed * .12f;
+
+                }
+                else if (Input.GetKeyUp(KeyCode.LeftShift))
+                {
+
+                    timer = 0;
+
+                    Debug.Log("not sprinting " + timer);
+                    sprintMult = 1f;
+                }
+                else if (Input.GetMouseButton(0) && GetComponent<BaseWeapon>()) //weapon
+                {
+                    GetComponent<BaseWeapon>().TryToFire();
+                }
+                else
+                {
+                    //Debug.Log("not sprinting outside loop " + timer);
+                    sprintMult = 1f;
+                }
+
             }
 
             Vector2 movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));   //(Devin) here is a cleaner way of doing player movement, I hope you don't mind...

@@ -9,7 +9,7 @@ using UnityEngine.Events;
 public class CombatEntity : MonoBehaviour
 {
     public float StartWaitSeconds = 1;
-    public bool IsActiveInGame = false;
+    public bool IsActiveInGame = false, UseRaycastVision = true;
 
     public UnityEvent OnKill = new UnityEvent();
 
@@ -25,6 +25,16 @@ public class CombatEntity : MonoBehaviour
                 _health = MaxHealth;
             else _health = value;
             }
+    }
+
+    public bool RaycastPlayer()
+    {
+        RaycastHit2D[] hits = Physics2D.LinecastAll(transform.position, Globals.Inst.Player.transform.position);
+        Debug.DrawLine(transform.position, Globals.Inst.Player.transform.position, Color.red);
+        foreach (RaycastHit2D rh in hits)
+            if (rh.collider.gameObject != gameObject && rh.collider.gameObject != Globals.Inst.Player.gameObject && rh.collider.gameObject != Globals.Inst.Player.PlayerShield) return false;
+        Debug.DrawLine(transform.position, Globals.Inst.Player.transform.position, Color.green);
+        return true;
     }
 
     public IEnumerator StartWaitDelayCoroutine() { yield return new WaitForSeconds(StartWaitSeconds); IsActiveInGame = true; }
