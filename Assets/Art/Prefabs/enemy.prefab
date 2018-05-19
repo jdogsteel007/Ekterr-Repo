@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 61834055139018000}
   - component: {fileID: 114407118058078482}
   - component: {fileID: 50947245691791772}
+  - component: {fileID: 114309925247025222}
   m_Layer: 0
   m_Name: enemy
   m_TagString: Untagged
@@ -88,6 +89,28 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &114309925247025222
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1856115044690028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: event:/BearWhimper
+  PlayEvent: 2
+  StopEvent: 0
+  CollisionTag: 
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!114 &114407118058078482
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -99,9 +122,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bede7c3e6b662974b9fde1b226e6f71d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  StartWaitSeconds: 1
+  IsActiveInGame: 0
+  UseRaycastVision: 1
+  OnKill:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  MaxHealth: 20
+  IsFriendly: 1
   isChasing: 0
-  health: 100
+  ChaseSpeed: 5
+  MaxRange: 20
 --- !u!212 &212587637377137050
 SpriteRenderer:
   m_ObjectHideFlags: 1

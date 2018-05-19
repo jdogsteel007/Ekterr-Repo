@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerController : CombatEntity {  //Inherets from CombatEntity so we have health and bullet handling
 
+    public GameObject levelStartPosition;
+
     public GameObject PlayerShield;
 
     public float moveSpeed, sprintTime;
@@ -24,7 +26,8 @@ public class PlayerController : CombatEntity {  //Inherets from CombatEntity so 
         anim = GetComponent<Animator>();
         myRigidbody = GetComponent<Rigidbody2D>();
         Health = MaxHealth;
-	}
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -120,6 +123,20 @@ public class PlayerController : CombatEntity {  //Inherets from CombatEntity so 
     {
         Destroy(gameObject); //RIP!
         UnityEngine.SceneManagement.SceneManager.LoadScene(1);
+    }
+
+    void setPlayerPosition() {
+
+        this.transform.position = levelStartPosition.transform.position;
+
+    }
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(this);
+        setPlayerPosition();
+
+
     }
 
 }

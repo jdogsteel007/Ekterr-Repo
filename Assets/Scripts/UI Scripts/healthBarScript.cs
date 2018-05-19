@@ -30,4 +30,12 @@ public class healthBarScript : MonoBehaviour {  //(Devin) I changed this a littl
         Globals.Inst.Player.Kill();
         }
     }
+
+    private void Awake()
+    {
+
+        DontDestroyOnLoad(this);
+
+    }
+
 }

@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212843847407726182}
   - component: {fileID: 50416291769544806}
   - component: {fileID: 61673010532090540}
+  - component: {fileID: 114955115794887828}
   m_Layer: 0
   m_Name: enemyBeam
   m_TagString: Untagged
@@ -87,6 +88,28 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.71, y: 1.2}
   m_EdgeRadius: 0
+--- !u!114 &114955115794887828
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1144766128385868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: event:/HESAFIRINHISLAZAAAAAAR
+  PlayEvent: 1
+  StopEvent: 0
+  CollisionTag: 
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!212 &212843847407726182
 SpriteRenderer:
   m_ObjectHideFlags: 1
