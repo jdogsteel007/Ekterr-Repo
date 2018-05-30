@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class truckScript : MonoBehaviour {
 
-    private float speed = 0;
+    public float speed = 0;
     public float secondsToWait = 3;
     public Canvas runCanvas;
     public GameObject player;
@@ -22,7 +22,7 @@ public class truckScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        transform.Translate(new Vector3(0, -speed, 0));
+        transform.Translate(new Vector3(0, speed, 0));
 
 	}
 
