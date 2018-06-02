@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class cubController : MonoBehaviour {
 
-    public GameObject player;
+    public GameObject DashDirectionArrow;
     public int AttackDmg = 3;
-    public float AttackCooldownTime = 5f, AttackRange = 5f;
+    public float AttackCooldownTime = 5f, AttackRange = 5f, AttackTime = 0.2f, DashCollisionBuffer = 1f;
 
     private float attackCooldown;
-    private bool dashing = false;
+    private bool dashing = false, attackHeld = false;
     private Vector3 buffer = new Vector3(-.1f, 2f, 0f);
 
 	// Use this for initialization
@@ -33,14 +33,27 @@ public class cubController : MonoBehaviour {
                 return;
             }
 
-            if(Input.GetMouseButtonDown(1) && attackCooldown == AttackCooldownTime)
+            if(Input.GetMouseButton(1) && attackCooldown == AttackCooldownTime && !dashing)
             {
-                StartCoroutine(Dash());
+                if (DashDirectionArrow)
+                {
+                    //pre attack
+                    attackHeld = true;
+                    DashDirectionArrow.SetActive(true);
+                    DashDirectionArrow.transform.rotation = StaticHelper.LookAt2D(DashDirectionArrow.transform.position, Globals.Inst.MainCamera.GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition));
+                }
             }
             else if (attackCooldown < AttackCooldownTime)
             {
                 attackCooldown += Time.deltaTime;
                 if (attackCooldown > AttackCooldownTime) attackCooldown = AttackCooldownTime;
+            }
+            else if (attackHeld)
+            {
+                attackHeld = false;
+                DashDirectionArrow.SetActive(false);
+                //attack
+                StartCoroutine(DashInDirection());
             }
 
             Vector2 movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));   //(Devin) here is a cleaner way of doing player movement, I hope you don't mind...
@@ -53,37 +66,30 @@ public class cubController : MonoBehaviour {
         else //player is not controlling cub
         {
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-            transform.position = Vector3.Lerp(transform.position, player.transform.position - buffer, .03f);
+            transform.position = Vector3.Lerp(transform.position, Globals.Inst.Player.transform.position - buffer, .03f);
         }
     }
 
-    public IEnumerator Dash()
+   public IEnumerator DashInDirection()
     {
-        dashing = true;
-        Vector3 dir = (Globals.Inst.MainCamera.GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized;
-        Vector3 target = transform.position + dir * AttackRange;
-        target.z = 0;
-        float timeSinceBeginDash = 0;
-        timeSinceBeginDash += Time.deltaTime;
-        while ((transform.position - target).magnitude > 0.2)
+        Vector3 target = transform.position + DashDirectionArrow.transform.up * AttackRange;
+        Vector3 originalPos = transform.position;
+        float amt = 0f;
+        while(transform.position != target)
         {
-            Vector3 newPos = Vector3.Lerp(transform.position, target, 0.5f);
-            RaycastHit2D rhh = Physics2D.Raycast(transform.position + dir, dir, AttackRange); //will break if boar is scaled, for now
-            if (!rhh)
+            amt += 1f / AttackTime * Time.deltaTime;
+
+            Vector3 frameTarget = Vector3.Lerp(originalPos, target, amt);
+
+            RaycastHit2D rh = Physics2D.Linecast(transform.position, frameTarget);
+            if(rh)
             {
-                transform.position = newPos;
-                float mag = (newPos - target).magnitude;
-                Debug.Log("Mag: " + mag);
-                if ( mag < 0.2)
-                    break;
-            }
-            else
-            {
-                transform.position = new Vector3(rhh.point.x, rhh.point.y, 0) - transform.up;
+                transform.position = rh.point - (Vector2)DashDirectionArrow.transform.up * DashCollisionBuffer;
                 break;
             }
+
+            transform.position = frameTarget;
             yield return null;
         }
-        dashing = false;
     }
 }
