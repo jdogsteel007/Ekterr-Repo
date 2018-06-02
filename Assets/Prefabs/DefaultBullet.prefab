@@ -94,6 +94,7 @@ MonoBehaviour:
   Damage: 1
   FriendlyBullet: 1
   UseCircleCollider: 0
+  Particles: {fileID: 198255819835727958}
   Creator: {fileID: 0}
 --- !u!114 &114993560560018630
 MonoBehaviour:
