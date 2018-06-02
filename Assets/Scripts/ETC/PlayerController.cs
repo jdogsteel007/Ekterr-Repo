@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : CombatEntity {  //Inherets from CombatEntity so we have health and bullet handling
 
     public GameObject PlayerShield;
+    public List<BaseWeapon> WeaponInventory = new List<BaseWeapon>();
 
     public float moveSpeed, sprintTime;
 
@@ -56,7 +57,7 @@ public class PlayerController : CombatEntity {  //Inherets from CombatEntity so 
             else
             {
                 sprintMult = 1f;
-                if (PlayerShield.activeInHierarchy)
+                if (PlayerShield && PlayerShield.activeInHierarchy)
                 {
                     PlayerShield.SetActive(false);
                 }
