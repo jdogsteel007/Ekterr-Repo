@@ -10,7 +10,8 @@ public class cubController : MonoBehaviour {
 
     private float attackCooldown;
     private bool dashing = false;
-    private Vector3 buffer = new Vector3(-.1f, 2f, 0f);
+    public Vector3 buffer = new Vector3(-.1f, 2f, 0f);
+    public float lerpSpeed = .3f;
 
 	// Use this for initialization
 	void Start () {
@@ -53,7 +54,7 @@ public class cubController : MonoBehaviour {
         else //player is not controlling cub
         {
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-            transform.position = Vector3.Lerp(transform.position, player.transform.position - buffer, .03f);
+            transform.position = Vector3.Lerp(transform.position, player.transform.position - buffer, lerpSpeed);
         }
     }
 

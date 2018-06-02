@@ -113,6 +113,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &306522143 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114770702180576976, guid: 46de3cf5854929a40aada4b37c83ec4c,
+    type: 2}
+  m_PrefabInternal: {fileID: 963767767}
+  m_Script: {fileID: 11500000, guid: b9f0d5c5dddfcd64b831cda349e2cae7, type: 3}
 --- !u!1 &316711929
 GameObject:
   m_ObjectHideFlags: 0
@@ -206,7 +212,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 316711929}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 27.8, y: -6, z: -0.34375}
+  m_LocalPosition: {x: 27.8, y: -3.64, z: -0.34375}
   m_LocalScale: {x: 101.07, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -270,7 +276,7 @@ MonoBehaviour:
   IsFriendly: 1
   PlayerShield: {fileID: 1529161236550584, guid: 62810b48a4e4eed40b86de8e1e683897,
     type: 2}
-  moveSpeed: 6.5
+  moveSpeed: 7
   sprintTime: 0
   LastMove: {x: 0, y: 0}
 --- !u!50 &481621863
@@ -468,11 +474,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4795766459275474, guid: 0e30caf921037104ca0e1ab36d793f86, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.112
+      value: 0.533
       objectReference: {fileID: 0}
     - target: {fileID: 4795766459275474, guid: 0e30caf921037104ca0e1ab36d793f86, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.561
+      value: 3.63
       objectReference: {fileID: 0}
     - target: {fileID: 4795766459275474, guid: 0e30caf921037104ca0e1ab36d793f86, type: 2}
       propertyPath: m_LocalPosition.z
@@ -519,7 +525,7 @@ Prefab:
     - target: {fileID: 114936555710592262, guid: 0e30caf921037104ca0e1ab36d793f86,
         type: 2}
       propertyPath: BulletSpeed
-      value: 17
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114936555710592262, guid: 0e30caf921037104ca0e1ab36d793f86,
         type: 2}
@@ -529,7 +535,7 @@ Prefab:
     - target: {fileID: 114677130164532708, guid: 0e30caf921037104ca0e1ab36d793f86,
         type: 2}
       propertyPath: BulletSpeed
-      value: 17
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 212930648896153008, guid: 0e30caf921037104ca0e1ab36d793f86,
         type: 2}
@@ -543,7 +549,17 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1595604241840362, guid: 0e30caf921037104ca0e1ab36d793f86, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212930648896153008, guid: 0e30caf921037104ca0e1ab36d793f86,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114936555710592262, guid: 0e30caf921037104ca0e1ab36d793f86,
+        type: 2}
+      propertyPath: IsActiveInGame
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0e30caf921037104ca0e1ab36d793f86, type: 2}
@@ -627,6 +643,11 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 813718738}
+--- !u!1 &819634648 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1595604241840362, guid: 0e30caf921037104ca0e1ab36d793f86,
+    type: 2}
+  m_PrefabInternal: {fileID: 812884445}
 --- !u!1 &833191403
 GameObject:
   m_ObjectHideFlags: 0
@@ -721,6 +742,11 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &961154752 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1595604241840362, guid: 0e30caf921037104ca0e1ab36d793f86,
+    type: 2}
+  m_PrefabInternal: {fileID: 1208580944}
 --- !u!1001 &963767767
 Prefab:
   m_ObjectHideFlags: 0
@@ -768,7 +794,7 @@ Prefab:
     - target: {fileID: 114770702180576976, guid: 46de3cf5854929a40aada4b37c83ec4c,
         type: 2}
       propertyPath: moveSpeed
-      value: 50
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 212995506090857338, guid: 46de3cf5854929a40aada4b37c83ec4c,
         type: 2}
@@ -776,6 +802,11 @@ Prefab:
       value: 
       objectReference: {fileID: 21300052, guid: aaff2c4d59f1b3443ae5e55929011189,
         type: 3}
+    - target: {fileID: 114770702180576976, guid: 46de3cf5854929a40aada4b37c83ec4c,
+        type: 2}
+      propertyPath: lerpSpeed
+      value: 0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 46de3cf5854929a40aada4b37c83ec4c, type: 2}
   m_IsPrefabParent: 0
@@ -1011,7 +1042,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1183639098}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 27.8, y: 5.99, z: -0.34375}
+  m_LocalPosition: {x: 27.8, y: 4.1, z: -0.34375}
   m_LocalScale: {x: 102.6, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1026,11 +1057,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4795766459275474, guid: 0e30caf921037104ca0e1ab36d793f86, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -0.198
+      value: -0.794
       objectReference: {fileID: 0}
     - target: {fileID: 4795766459275474, guid: 0e30caf921037104ca0e1ab36d793f86, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.571
+      value: 3.611
       objectReference: {fileID: 0}
     - target: {fileID: 4795766459275474, guid: 0e30caf921037104ca0e1ab36d793f86, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1081,7 +1112,7 @@ Prefab:
     - target: {fileID: 114936555710592262, guid: 0e30caf921037104ca0e1ab36d793f86,
         type: 2}
       propertyPath: BulletSpeed
-      value: 17
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114936555710592262, guid: 0e30caf921037104ca0e1ab36d793f86,
         type: 2}
@@ -1091,7 +1122,7 @@ Prefab:
     - target: {fileID: 114677130164532708, guid: 0e30caf921037104ca0e1ab36d793f86,
         type: 2}
       propertyPath: BulletSpeed
-      value: 17
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 212930648896153008, guid: 0e30caf921037104ca0e1ab36d793f86,
         type: 2}
@@ -1105,7 +1136,12 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1595604241840362, guid: 0e30caf921037104ca0e1ab36d793f86, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114936555710592262, guid: 0e30caf921037104ca0e1ab36d793f86,
+        type: 2}
+      propertyPath: IsActiveInGame
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0e30caf921037104ca0e1ab36d793f86, type: 2}
@@ -1320,7 +1356,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1448453993}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -24.33, y: 0, z: 0.1273119}
+  m_LocalPosition: {x: -31.94, y: 0, z: 0.1273119}
   m_LocalScale: {x: 3, y: 3, z: 0.43}
   m_Children:
   - {fileID: 812884446}
@@ -1340,9 +1376,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
-  secondsToWait: 1
+  secondsToWait: 3
   runCanvas: {fileID: 833191406}
   player: {fileID: 481621860}
+  enemy1: {fileID: 819634648}
+  enemy2: {fileID: 961154752}
 --- !u!1001 &1635434806
 Prefab:
   m_ObjectHideFlags: 0
@@ -1446,8 +1484,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 481621862}
-  Cub: {fileID: 114770702180576976, guid: 46de3cf5854929a40aada4b37c83ec4c, type: 2}
-  DefaultBulletPrefab: {fileID: 1993068235790294, guid: fe29561627969a14d98a315b6ab76ebf,
+  Cub: {fileID: 306522143}
+  DefaultBulletPrefab: {fileID: 1158337452512498, guid: fe29561627969a14d98a315b6ab76ebf,
     type: 2}
   InputFocus: {fileID: 481621860}
   MainCamera: {fileID: 1222404502}
@@ -1460,7 +1498,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4112986151499988, guid: 4b0709dd8bf375a48965cc349629e0b2, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 50.1
+      value: 48
       objectReference: {fileID: 0}
     - target: {fileID: 4112986151499988, guid: 4b0709dd8bf375a48965cc349629e0b2, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1501,7 +1539,7 @@ Prefab:
     - target: {fileID: 114131787291765040, guid: 4b0709dd8bf375a48965cc349629e0b2,
         type: 2}
       propertyPath: sceneToSwitchTo
-      value: Level 1 Clearing after chase
+      value: Zone 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4b0709dd8bf375a48965cc349629e0b2, type: 2}
