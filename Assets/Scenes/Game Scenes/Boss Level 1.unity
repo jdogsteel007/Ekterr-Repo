@@ -10788,7 +10788,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1432761260}
   - component: {fileID: 1432761259}
+  - component: {fileID: 1432761263}
+  - component: {fileID: 1432761262}
   - component: {fileID: 1432761261}
+  - component: {fileID: 1432761264}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -10878,6 +10881,85 @@ MonoBehaviour:
   pos2: {fileID: 1392963510}
   pos3: {fileID: 1032493809}
   speed: 5
+  maxShootRange: 100
+  MaxViewRange: 200
+  minRange: 5
+  enemyProj: {fileID: 1753496609439002, guid: 71fea3e655464b942ad706791f0766b9, type: 2}
+  isChasing: 0
+  ChaseSpeed: 5
+  MaxRange: 20
+  DashWarningSprite: {fileID: 21300000, guid: 65d26c28849b6f14fa3ba452817c4e8d, type: 3}
+  DashUnits: 5
+  DashCooldown: 3
+  DashSpeed: 1
+  PreDashTime: 1
+  IsDashingOrAboutToDash: 0
+  enemy: {fileID: 1762044315647674, guid: 5ca81e366acae7e4b92a0eea529b3fbe, type: 2}
+  spawnTime: 1
+  spawnPoints:
+  - {fileID: 1989160624}
+--- !u!61 &1432761262
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1432761258}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!50 &1432761263
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1432761258}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!114 &1432761264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1432761258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 904def66d12edec47931322e3b3676b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FireRate: 1
+  BulletSpeed: 5
+  BulletDamage: 1
+  BulletTint: {r: 1, g: 1, b: 1, a: 1}
+  BulletSpread: 10
+  NumberOfBullets: 2
 --- !u!1 &1480380877
 GameObject:
   m_ObjectHideFlags: 0
@@ -10893,6 +10975,7 @@ GameObject:
   - component: {fileID: 1480380880}
   - component: {fileID: 1480380879}
   - component: {fileID: 1480380878}
+  - component: {fileID: 1480380885}
   m_Layer: 0
   m_Name: player
   m_TagString: player
@@ -10939,7 +11022,6 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   MaxHealth: 20
   IsFriendly: 1
-  levelStartPosition: {fileID: 0}
   PlayerShield: {fileID: 931890933}
   moveSpeed: 6.5
   sprintTime: 1
@@ -11069,6 +11151,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1480380885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1480380877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 403a041ed09de504ab463cf0e8b6df7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FireRate: 0.2
+  BulletSpeed: 5
+  BulletDamage: 1
+  BulletTint: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1778467450
 GameObject:
   m_ObjectHideFlags: 0
