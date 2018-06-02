@@ -10,7 +10,11 @@
 [LOG] Thread::initThread                       : Init FMOD stream thread. Priority: 2, Stack Size: 65536, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] Thread::initThread                       : Init FMOD mixer thread. Priority: 3, Stack Size: 49152, Semaphore: No, Sleep Time: 0, Looping: Yes.
+<<<<<<< HEAD
+[LOG] AsyncManager::init                       : manager 0000000041F44A78 isAsync 1 updatePeriod 0.02
+=======
 [LOG] AsyncManager::init                       : manager 00000000113C5E78 isAsync 1 updatePeriod 0.02
+>>>>>>> 9e650253e2389f3dfcc7aa0c2a2154f6031ee6e0
 [LOG] Thread::initThread                       : Init FMOD Studio update thread. Priority: 0, Stack Size: 65536, Semaphore: No, Sleep Time: 1, Looping: No.
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
@@ -60,9 +64,17 @@
 [ERR] RuntimeBankModel::openFile               : Failed to open file 'C:\Users\joema\Desktop\ekterrepo\FMOD Sounds\EkterAndTheClub\Build\Desktop/.strings.bank'
 [LOG] Thread::callback                         : FMOD Studio update thread finished.
 [LOG] Thread::callback                         : FMOD Studio bank load thread finished.
+<<<<<<< HEAD
+[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
+=======
+>>>>>>> 9e650253e2389f3dfcc7aa0c2a2154f6031ee6e0
 [LOG] Thread::callback                         : FMOD Studio sample load thread finished.
 [LOG] LiveUpdate::release                      : 
 [LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
 [LOG] Thread::callback                         : FMOD stream thread finished.
 [LOG] Thread::callback                         : FMOD mixer thread finished.
+<<<<<<< HEAD
+[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
+=======
+>>>>>>> 9e650253e2389f3dfcc7aa0c2a2154f6031ee6e0
 [LOG] SystemI::close                           : Closed.

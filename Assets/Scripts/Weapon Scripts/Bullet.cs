@@ -2,6 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public class BulletParticleDestroyer : MonoBehaviour
+{
+    private void Start()
+    {
+        StartCoroutine(WaitBeforeDestroy());
+    }
+
+    private IEnumerator WaitBeforeDestroy()
+    {
+        yield return new WaitForSeconds(4);
+        Destroy(gameObject);
+    }
+}
+
 public class Bullet : MonoBehaviour {   //Base class for all bullets, uses physics2d functions instead of collider for optimization reasons
 
     public float MovementSpeed = 0.1f,      //How fast the bullet moves (in units per second)
@@ -14,6 +28,7 @@ public class Bullet : MonoBehaviour {   //Base class for all bullets, uses physi
     public int Damage = 1;                  //Amount of damage the bullet does
     public bool FriendlyBullet = true,      //Friendly bullets can't hurt the player, unfriendly bullets can't hurt the enemies
         UseCircleCollider = false;          //Whether we're using a box or circle overlap
+    public ParticleSystem Particles;
 
     private float _lifetime = 0f;           //How long the bullet has existed
 
@@ -59,6 +74,13 @@ public class Bullet : MonoBehaviour {   //Base class for all bullets, uses physi
     public void DestroyBullet()
     {
         StopAllCoroutines();
+        if(Particles)
+        {
+            Particles.gameObject.transform.parent = null;
+            Particles.loop = false;
+            Particles.Stop();
+            Particles.gameObject.AddComponent<BulletParticleDestroyer>();
+        }
         Destroy(gameObject);
     }
 
