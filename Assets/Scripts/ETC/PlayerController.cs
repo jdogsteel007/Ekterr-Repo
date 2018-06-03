@@ -25,11 +25,15 @@ public class PlayerController : CombatEntity {  //Inherets from CombatEntity so 
         anim = GetComponent<Animator>();
         myRigidbody = GetComponent<Rigidbody2D>();
         Health = MaxHealth;
-
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    private void OnLevelWasLoaded(int level)
+    {
+        Globals.Inst.Player = this;
+    }
+
+    // Update is called once per frame
+    void Update () {
         if (Globals.Inst.InputFocus == gameObject)
         {
             playerMoving = false;
