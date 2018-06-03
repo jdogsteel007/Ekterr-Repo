@@ -1,0 +1,29 @@
+﻿# Tiled2Unity generated file. Do not modify by hand.
+# Wavefront file for 'cavePassage_mesh_0007.obj'
+
+# Vertices (Count = 8)
+v -256 -544 0
+v -272 -544 0
+v -272 -528 0
+v -256 -528 0
+v -704 -688 0
+v -720 -688 0
+v -720 -672 0
+v -704 -672 0
+
+# Texture cooridinates (Count = 4)
+vt 0.6 0.2857143
+vt 0.8 0.2857143
+vt 0.8 0.4285714
+vt 0.6 0.4285714
+
+# Normal
+vn 0 0 -1
+
+# Mesh description
+g cavePassage_mesh_0007
+
+# Faces
+f 1/1/1 2/2/1 3/3/1 4/4/1
+f 5/1/1 6/2/1 7/3/1 8/4/1
+
