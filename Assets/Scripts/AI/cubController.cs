@@ -1,5 +1,4 @@
-
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -17,7 +16,6 @@ public class cubController : MonoBehaviour {
 	void Start () {
         attackCooldown = AttackCooldownTime;
 	}
-
     public float moveSpeed;
     // Update is called once per frame
     void Update () {
@@ -43,6 +41,8 @@ public class cubController : MonoBehaviour {
                     DashDirectionArrow.SetActive(true);
                     DashDirectionArrow.transform.rotation = StaticHelper.LookAt2D(DashDirectionArrow.transform.position, Globals.Inst.MainCamera.GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition));
                 }
+                else
+                    Debug.Log("Cub doesn't have a dash arrow sprite...");
             }
             else if (attackCooldown < AttackCooldownTime)
             {
