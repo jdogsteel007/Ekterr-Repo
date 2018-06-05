@@ -1,7 +1,5 @@
 fileFormatVersion: 2
-guid: 4cc9bd6ad0aad0e41851321be81a680a
-timeCreated: 1527911528
-licenseType: Free
+guid: fa6ae84f1c2fd4f47ba3e3903acbc67f
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
@@ -9,17 +7,19 @@ ModelImporter:
     100002: //RootNode
     400000: chasescenetiled_mesh_0002
     400002: //RootNode
+    2100000: chasescenetiled_mesh_0002Mat
     2300000: chasescenetiled_mesh_0002
     3300000: chasescenetiled_mesh_0002
     4300000: chasescenetiled_mesh_0002
+    9500000: //RootNode
   externalObjects: {}
   materials:
-    importMaterials: 0
+    importMaterials: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
   animations:
-    legacyGenerateAnimations: 0
+    legacyGenerateAnimations: 4
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
@@ -46,14 +46,14 @@ ModelImporter:
     meshCompression: 0
     addColliders: 0
     importVisibility: 1
-    importBlendShapes: 0
+    importBlendShapes: 1
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
     optimizeMeshForGPU: 1
-    keepQuads: 1
+    keepQuads: 0
     weldVertices: 1
     preserveHierarchy: 0
     indexFormat: 0
@@ -65,7 +65,7 @@ ModelImporter:
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
-    tangentImportMode: 2
+    tangentImportMode: 3
     normalCalculationMode: 4
   importAnimation: 1
   copyAvatar: 0
@@ -86,7 +86,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

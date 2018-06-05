@@ -34,3 +34,7 @@ sysinfo.txt
 *.unitypackage
 fmod.log
 Assets/Scripts/AI/cubController.cs
+Assets/Tiled2Unity/Meshes/chasescenetiled/chasescenetiled_mesh_0001.obj.meta
+Assets/Tiled2Unity/Meshes/chasescenetiled/chasescenetiled_mesh_0002.obj.meta
+Assets/Tiled2Unity/Prefabs/chasescenetiled.prefab
+Assets/Tiled2Unity/Prefabs/zone 2.prefab

@@ -12,16 +12,24 @@ public class Globals : MonoBehaviour {
     //Any global variables that we might want to access from anywhere can be put in here
     public PlayerController Player;
     public cubController Cub;
-    public GameObject DefaultBulletPrefab, InputFocus, MainCamera;
+    public GameObject DefaultBulletPrefab, InputFocus, MainCamera, MainCanvas;
     public static bool DidPlayerSwitchThisFrame = false;
 
 	// Use this for initialization
 	void Start () {
         Inst = this;
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(Player);
+        DontDestroyOnLoad(Cub);
+        DontDestroyOnLoad(MainCamera);
+        DontDestroyOnLoad(MainCanvas);
+    }
+
+    // Update is called once per frame
+    void Update () {
 		
 	}
 }
